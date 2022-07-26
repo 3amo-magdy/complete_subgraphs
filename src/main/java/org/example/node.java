@@ -3,11 +3,11 @@ package org.example;
 import java.util.ArrayList;
 
 public class node {
-    int data;
+    String node_name;
     ArrayList<node> neighbours;
     Boolean visited ;
-    public node(int data){
-        this.data = data;
+    public node(String data){
+        this.node_name = data;
         this.neighbours=new ArrayList<>();
         this.visited = false;
     }

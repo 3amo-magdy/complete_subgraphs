@@ -23,7 +23,7 @@ public class graph {
         this.nodes=new ArrayList<node>();
         this.edgesNum = 0;
         for (node x:nodes) {
-            node clone = new node(x.data);
+            node clone = new node(x.node_name);
             for (node child :x.neighbours) {
                 if(nodes.contains(child)){
                     clone.neighbours.add(child);
@@ -63,7 +63,7 @@ public class graph {
                 for (node n : loop.nodes) {
                     Boolean contains = false;
                     for (node i:l){
-                        if(i.data==n.data) {
+                        if(i.node_name==n.node_name) {
                             contains = true;
                         }
                     }
@@ -101,17 +101,17 @@ public class graph {
         int e = Integer.parseInt(ne[1]);
 
         graph g = new graph();
-        HashMap<Integer,node> m = new HashMap<>();
+        HashMap<String,node> m = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            int node_data = Integer.parseInt(s.nextLine());
-            node node = new node(node_data);
+            String node_name =s.nextLine();
+            node node = new node(node_name);
             g.nodes.add(node);
-            m.put(node_data,node);
+            m.put(node_name,node);
         }
         for (int i = 0; i < e; i++) {
             String[] edge = s.nextLine().split(" ");
-            int node1 = Integer.parseInt(edge[0]);
-            int node2 = Integer.parseInt(edge[1]);
+            String node1 = edge[0];
+            String node2 = edge[1];
             m.get(node1).connectTo(m.get(node2));
             g.edgesNum++;
         }
@@ -136,7 +136,7 @@ public class graph {
         for (graph loop:g.loops) {
             System.out.println("loop:");
             for (node y:loop.nodes) {
-                System.out.print(y.data+" ");
+                System.out.print(y.node_name+" ");
             }
             System.out.println("");
         }
