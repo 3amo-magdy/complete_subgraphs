@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 //  get all loops
 //  sort the loops by number of nodes (descending-ly)
-//  check each loop -> is it a complete graph ?. if so -> deconstruct and generate all shit
+//  check each loop -> is it a complete graph ?. if so -> deconstruct and generate
 
 public class graph {
     ArrayList<node> nodes;
